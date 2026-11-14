@@ -4,7 +4,7 @@
 **Last Updated:** November 11, 2026  
 **Application Name:** NamaazAwqaat  
 **Package Name:** `com.farooq.namaazawqaat`  
-**Developer Contact:** `Sadaqa.E.Jaariyah@gmail.com`  
+**Developer Contact:** `SadaqahJaariyah.App@gmail.com`  
 
 ---
 
