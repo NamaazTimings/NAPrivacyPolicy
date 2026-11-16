@@ -1,71 +1,89 @@
-# Privacy Policy for NamaazAwqaat
+# Privacy Policy for Namaaz Awqaat
 
-**Effective Date:** November 11, 2026  
-**Last Updated:** November 11, 2026  
-**Application Name:** NamaazAwqaat  
-**Package Name:** `com.farooq.namaazawqaat`  
-**Developer Contact:** `SadaqahJaariyah.App@gmail.com`  
+**Last updated: 2026-11-16**
 
----
+Namaaz Awqaat ("the app") shows prayer times, the Qibla direction, prayer alerts and the Hijri date. This policy explains what the app does with information. It is written from how the app actually works.
 
-## 1. Introduction
-**NamaazAwqaat** ("we", "our", or "us") is dedicated to protecting your privacy. This Privacy Policy outlines how our application collects, uses, and safeguards information when you use our mobile application. 
+## In short
+* The app has **no accounts, no ads, no analytics and no crash-reporting tools**.
+* Your **location stays on your phone**. It is used only to work out prayer times and the Qibla, and only after you tap the location button.
+* The app uses **Google's Firebase** for announcements (only if you switch them on) and a small silent update of Hijri-calendar corrections.
+* We do **not sell** your information and do not share it for advertising.
 
-NamaazAwqaat is built as a modern, privacy-first prayer timing application designed to function offline without requiring user registration, personal account creation, or tracking.
+## Who is responsible
+Contact: **SadaqahJaariyah.App@gmail.com**
 
----
+## What the app uses, and why
 
-## 2. Information Collection and Use
+### Location (precise or approximate)
+* **When:** only after you grant the location permission **and** tap the location button on the Timings screen.
+* **What for:** to calculate prayer times, the Qibla direction and the time zone for the place you are in.
+* **Where it goes:** the coordinates and the place name are **saved on your phone** so the app can show your times next time. They are **not sent to the developer** and not to any server run by the developer.
+* **Place name:** to show a readable place name the app asks **Android's built-in geocoder** (the same one other apps use). Depending on your phone, that system service may send the coordinates to its provider (usually Google) to get the name. This is done by the Android system, not by us, and we never receive it.
+* You can stop at any time by choosing a city from the list instead, or by turning off location permission in Android settings.
 
-### A. Location Data (`ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION`)
-- **How We Use It:** When you choose to use the "My Location" (GPS) feature, NamaazAwqaat accesses your device's geographical coordinates (latitude and longitude) **on-device** to calculate astronomical prayer times and determine the precise Qibla direction relative to the Kaaba.
-- **Storage & Transfer:** Location data is processed locally on your device. We do **not** transmit, store on external servers, sell, or share your location coordinates with any third parties. Reverse-geocoding queries standard system Android APIs to resolve city/locality names locally.
+### Settings stored on your phone
+Language, city or saved place, Asr and calculation method, alert switches and sound, theme, font, text size, app-icon style, Hijri-date adjustment, and a few flags (for example "guide seen", "compass calibrated", "background question answered") and the time of your last test alert, used only to tell you if it did not arrive. They stay on your phone.
 
-### B. Device Sensors (Compass / Orientation)
-- **How We Use It:** NamaazAwqaat accesses your device's rotation vector and magnetometer sensors solely to render the real-time Qibla compass needle on screen.
-- **Storage & Transfer:** Sensor data is read in real time while the Qibla tab is open and is never logged, saved, or transmitted.
+### Compass sensors
+The Qibla compass reads your phone's motion and magnetic sensors **on the phone only**. Nothing is recorded or sent.
 
-### C. Alarms and Notifications (`POST_NOTIFICATIONS`, `SCHEDULE_EXACT_ALARM`, `RECEIVE_BOOT_COMPLETED`, `VIBRATE`)
-- **How We Use It:** To deliver exact prayer alarms, Sehri caution alerts, Azaan audio notifications, and Friday Surah Kahf reminders, the app uses Android `AlarmManager` and notification services.
-- **Storage & Transfer:** Alarm schedules and settings are stored locally on your device in private application preferences.
+### Prayer alerts
+Alerts use Android's alarm-clock alarms and notifications so they arrive on time, even when the phone is idle. Android may therefore show your next prayer alert as an alarm in the status bar. The app sets them again after the phone restarts. After the first-run guide (and once after an update) it asks whether the app may run in the background, which is Android's battery-optimisation setting, so alerts are not delayed. It is optional and Android asks you to confirm; you can change it any time in Settings. All of this happens on your phone.
 
-### D. Firebase Cloud Messaging (FCM) & Push Announcements
-- **How We Use It:** NamaazAwqaat integrates optional Firebase Cloud Messaging (FCM) to deliver lightweight public announcements (such as festival updates or Eid notices).
-- **Subscribed Topics:** The app subscribes to non-identifying public notification topics based strictly on language choice (e.g., `lang_en`, `lang_ur`, `lang_te`, `lang_hi`) and city selection (e.g., `city_hyderabad`, `city_khammam`).
-- **Data Privacy:** FCM does not collect personal identifiers, user credentials, phone numbers, or contacts.
+### Firebase Cloud Messaging (announcements), only if you turn announcements on
+* If you switch announcements on in Settings, the app subscribes your phone to a few general **topics** (all users, your language, and your city if it is one of the built-in cities) so it can receive occasional announcements.
+* To deliver them, Google's Firebase assigns your phone an **installation ID / messaging token** and processes technical details such as app version, device model, Android version and IP address.
+* Announcements are **not personalised**. We only see how many phones are subscribed to each topic, not who they are.
+* Turning announcements off in Settings removes the subscriptions.
 
----
+### Firebase Remote Config (Hijri-date corrections)
+* Moon-sighting dates differ between regions, so the app downloads a small file of **calendar corrections** from Firebase when it opens. This happens quietly and does not depend on the announcements switch. It never shows a notification.
+* To do this, Firebase receives standard technical information (installation ID, app version, device model, Android version, language and region, IP address). The app does not add your location or any personal details to this request.
+* If you are offline, the last saved corrections or the built-in calendar are used.
 
-## 3. Third-Party Services
-NamaazAwqaat does **not** include third-party advertising SDKs, behavioral analytics tracking, or data brokers. The only third-party framework integrated is Google Firebase Cloud Messaging for optional push notifications.
+### Feedback
+The feedback button only opens **your own email app** with our address and a subject line filled in. Nothing is sent unless you write and send the email yourself.
 
-- **Google Play Services / Firebase Privacy Policy:** [https://policies.google.com/privacy](https://policies.google.com/privacy)
+## What the app does not do
+* No sign-up, no accounts, no user profiles.
+* No advertising, no ad networks, no tracking across apps or websites.
+* No analytics or crash-reporting libraries.
+* No access to your contacts, photos, files, microphone or camera.
+* No sale of personal information.
 
----
+## Permissions the app asks for
+| Permission | Why |
+|---|---|
+| Notifications | Prayer alerts and, if enabled, announcements |
+| Receive boot completed | Set your alerts again after the phone restarts |
+| Vibrate | Vibration alerts |
+| Ignore battery optimisations (optional) | Stop the system delaying alerts |
+| Internet | Firebase announcements and calendar corrections |
+| Location (precise / approximate) | Prayer times and Qibla for where you are, after you tap the location button |
 
-## 4. Children’s Privacy
-Our application does not address anyone under the age of 13 intentionally, nor does it collect personally identifiable information from children. If you are a parent or guardian and are aware that your child has provided us with personal information, please contact us so we can take necessary actions.
+## Who else handles information
+Google (Firebase Cloud Messaging and Firebase Remote Config) processes the technical information described above on our behalf. Their handling is described at https://policies.google.com/privacy and https://firebase.google.com/support/privacy. Android's system geocoder is part of your phone's software.
+If your phone has Android or Google backup switched on, Android may save the app's settings (which can include a saved place) to your own Google account. That is controlled by your phone settings.
+We may disclose information if the law requires it, but the developer does not hold personal data about you.
 
----
+## How long information is kept
+* Information on your phone stays until you clear the app's storage or uninstall it.
+* Firebase keeps installation and messaging identifiers for as long as the app is installed and as described in Google's policies.
 
-## 5. Data Security
-We value your trust in using NamaazAwqaat. All application preferences, custom alarm offset settings, theme configurations, and city choices are stored securely inside your device's private application storage (`SharedPreferences`). No personal data is transmitted over the internet.
+## Your choices
+* Pick a city instead of using location, or revoke the permission at any time.
+* Turn announcements off in Settings.
+* Clear the app's storage or uninstall it to remove all information saved on the phone.
 
----
+## Security
+The app does not collect accounts or passwords. Communication with Firebase uses encrypted connections.
 
-## 6. Your Rights & Choices
-- **Location Access:** You can enable or disable location permissions at any time via your device's System Settings (`Settings > Apps > NamaazAwqaat > Permissions`).
-- **Notification Access:** You can enable, disable, or customize notification channels at any time in system settings or via the in-app **Alerts** and **Settings** tabs.
+## Children
+The app is a general prayer-time tool. It does not knowingly collect personal information from anyone, including children. The "Kids" option in Settings is only a style for the app icon.
 
----
+## Changes to this policy
+If the app changes how it handles information, this page and the date at the top are updated.
 
-## 7. Changes to This Privacy Policy
-We may update our Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date. You are advised to review this Privacy Policy periodically for any changes.
-
----
-
-## 8. Contact Us
-If you have any questions or suggestions regarding our Privacy Policy, please feel free to contact us at:
-
-- **Email:** `SadaqaJaariyah.App@gmail.com`
-- **Application:** NamaazAwqaat (`com.farooq.namaazawqaat`)
+## Contact
+Questions about this policy: **SadaqahJaariyah.App@gmail.com**
